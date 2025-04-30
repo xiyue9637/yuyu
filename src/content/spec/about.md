@@ -1,5 +1,6 @@
 # 关于
-Fuwari牛逼 [Fuwari](https://github.com/saicaca/fuwari).
+Fuwari牛逼，我这辈子都不会改博客框架了。 [Fuwari](https://github.com/saicaca/fuwari).
+关于AcoFork的其他站点：[LinkMe](https://link.me/acofork)
 
 ::github{repo="saicaca/fuwari"}
 
