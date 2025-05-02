@@ -30,7 +30,7 @@ https://github.com/juewuy/ShellCrash
 Tg通知频道：https://t.me/ShellClash
 
 ```shell
-bash -c "$(curl -kfsSl https://raw-githubusercontent-com.acofork.us.kg/juewuy/ShellClash/master/install.sh)" && source /etc/profile &> /dev/null
+bash -c "$(curl -kfsSl https://raw-githubusercontent-com.072103.xyz/juewuy/ShellClash/master/install.sh)" && source /etc/profile &> /dev/null
 ```
 
 打开CLI：clash、crash
