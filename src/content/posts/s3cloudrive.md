@@ -9,6 +9,8 @@ draft: false
 lang: ''
 ---
 
+> 视频教程（推荐）： https://www.bilibili.com/video/BV17b5gz5Ea4
+
 # 正式开始
 
 使用方法非常简单，进入GitHub仓库：[GitHub - afoim/S3cloudrive-index: S3cloudrive public directory listing. Powered by Next.js.](https://github.com/afoim/S3cloudrive-index)
