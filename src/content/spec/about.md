@@ -7,6 +7,8 @@ Fuwari牛逼，我这辈子都不会改博客框架了。
 
 # 友情链接
 
+- 卡拉彼丘是世界上最好玩的游戏！给我玩！ https://klbq.idreamsky.com
+
 - 带我入坑网站的超级大坏比：https://phira.dmocken.top/
 
 - site rbq.*找到的：https://saltedfishes.com
