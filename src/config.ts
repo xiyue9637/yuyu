@@ -45,7 +45,7 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.About,
 		{
 			name: "加入技术群",
-			url: "https://qm.qq.com/cgi-bin/qm/qr?k=9XlIry_sikDkTctIqa3Og0l6SxrHo2-k&jump_from=webapi&authKey=XwrSKvGBDn/acdiu+46KwAiRvhcL0QhPT+rHXEZ0kTwCmZDu9fJeGfKoW6DWdoM", // Internal links should not include the base path, as it is automatically added
+			url: "https://s.afo.im/tit", // Internal links should not include the base path, as it is automatically added
 			external: true, // Show an external link icon and will open in a new tab
 		},
 		{
