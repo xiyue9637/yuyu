@@ -19,4 +19,5 @@ description: 关于如何联系二叉树树~
 
 ---
 
-# 直播地址： https://s.afo.im/v
+# 直播地址 
+[点击进入直播间](https://s.afo.im/v)
