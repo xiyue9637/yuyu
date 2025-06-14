@@ -22,6 +22,10 @@ description: 关于如何联系二叉树树~
 
 点击此链接购买： https://wl2.awcmam.com/#/register?code=FNQwOQBM
 
+# 雨云服务器购买
+
+服务器： https://s.afo.im/yyb
+
 ## 最推荐加入TG群聊，如果实在无能为力就加入QQ群聊
 
 ---
