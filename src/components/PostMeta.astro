@@ -13,6 +13,7 @@ interface Props {
 	category: string;
 	hideTagsForMobile?: boolean;
 	hideUpdateDate?: boolean;
+	slug?: string;
 }
 const {
 	published,
@@ -21,6 +22,7 @@ const {
 	category,
 	hideTagsForMobile = false,
 	hideUpdateDate = false,
+	slug,
 } = Astro.props;
 const className = Astro.props.class;
 ---
@@ -79,4 +81,52 @@ const className = Astro.props.class;
             {!(tags && tags.length > 0) && <div class="transition text-50 text-sm font-medium">{i18n(I18nKey.noTags)}</div>}
         </div>
     </div>
+
+    <!-- page views -->
+    {slug && (
+        <div class="flex items-center">
+            <div class="meta-icon">
+                <Icon name="material-symbols:visibility-outline-rounded" class="text-xl"></Icon>
+            </div>
+            <span class="text-50 text-sm font-medium" id="page-views-display">加载中...</span>
+        </div>
+    )}
 </div>
+
+{slug && (
+    <script define:vars={{ slug }}>
+        // 获取访问量统计
+        async function fetchPageViews() {
+            try {
+                const response = await fetch(`https://umami-blog-api.afo.im/posts/${slug}/`);
+                if (response.ok) {
+                    const data = await response.text();
+                    const [pageViews, visits] = data.split(',');
+                    const displayElement = document.getElementById('page-views-display');
+                    if (displayElement) {
+                        displayElement.textContent = `浏览量 ${pageViews} · 访问数 ${visits}`;
+                    }
+                } else {
+                    console.warn('Failed to fetch page views:', response.status);
+                    const displayElement = document.getElementById('page-views-display');
+                    if (displayElement) {
+                        displayElement.textContent = '统计加载失败';
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching page views:', error);
+                const displayElement = document.getElementById('page-views-display');
+                if (displayElement) {
+                    displayElement.textContent = '统计不可用';
+                }
+            }
+        }
+
+        // 页面加载完成后获取统计数据
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', fetchPageViews);
+        } else {
+            fetchPageViews();
+        }
+    </script>
+)}
