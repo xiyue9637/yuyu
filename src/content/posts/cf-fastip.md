@@ -26,7 +26,7 @@ Cloudflare 优选域名：[记录 - AcoFork Blog](https://afo.im/posts/record/#c
 
 ---
 
-# Worker路由接入反代并优选全球（新）
+# Worker路由反代全球并优选（新）
 
 > 本方法的原理为通过Worker反代你的源站，然后将Worker的入口节点进行优选。此方法不是传统的优选，源站接收到的Hosts头仍然是直接指向源站的解析
 > 
@@ -35,14 +35,13 @@ Cloudflare 优选域名：[记录 - AcoFork Blog](https://afo.im/posts/record/#c
 创建一个Cloudflare Worker，写入代码
 
 ```js
-// 域名映射配置
+// 域名前缀映射配置
 const domain_mappings = {
-  '源站域名1.com': '最终访问域名头.',
+  '源站.com': '最终访问头.',
 //例如：
 //'gitea.072103.xyz': 'gitea.',
 //则你设置Worker路由为gitea.*都将会反代到gitea.072103.xyz
 };
-
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
@@ -52,125 +51,73 @@ async function handleRequest(request) {
   const url = new URL(request.url);
   const current_host = url.host;
 
-
   // 强制使用 HTTPS
   if (url.protocol === 'http:') {
     url.protocol = 'https:';
-    return Response.redirect(url.href);
+    return Response.redirect(url.href, 301);
   }
 
-  // 从当前主机名中提取前缀
   const host_prefix = getProxyPrefix(current_host);
   if (!host_prefix) {
-    return new Response('Domain not configured for proxy', { status: 404 });
+    return new Response('Proxy prefix not matched', { status: 404 });
   }
 
-  // 根据前缀找到对应的原始域名
+  // 查找对应目标域名
   let target_host = null;
-  for (const [original, prefix] of Object.entries(domain_mappings)) {
-    if (prefix === host_prefix) {
-      target_host = original;
+  for (const [origin_domain, prefix] of Object.entries(domain_mappings)) {
+    if (host_prefix === prefix) {
+      target_host = origin_domain;
       break;
     }
   }
 
   if (!target_host) {
-    return new Response('Domain not configured for proxy', { status: 404 });
+    return new Response('No matching target host for prefix', { status: 404 });
   }
 
-  // 构建新的请求URL
-  const new_url = new URL(url);
-  new_url.host = target_host;
-  new_url.pathname = pathname;
+  // 构造目标 URL
+  const new_url = new URL(request.url);
   new_url.protocol = 'https:';
+  new_url.host = target_host;
 
-  // 设置新的请求头
+  // 创建新请求
   const new_headers = new Headers(request.headers);
   new_headers.set('Host', target_host);
   new_headers.set('Referer', new_url.href);
 
   try {
-    // 发起请求
     const response = await fetch(new_url.href, {
       method: request.method,
       headers: new_headers,
-      body: request.method !== 'GET' ? request.body : undefined
+      body: request.method !== 'GET' && request.method !== 'HEAD' ? request.body : undefined,
+      redirect: 'manual'
     });
 
-    // 克隆响应以便处理内容
-    const response_clone = response.clone();
+    // 复制响应头并添加CORS
+    const response_headers = new Headers(response.headers);
+    response_headers.set('access-control-allow-origin', '*');
+    response_headers.set('access-control-allow-credentials', 'true');
+    response_headers.set('cache-control', 'public, max-age=600');
+    response_headers.delete('content-security-policy');
+    response_headers.delete('content-security-policy-report-only');
 
-    // 设置新的响应头
-    const new_response_headers = new Headers(response.headers);
-    new_response_headers.set('access-control-allow-origin', '*');
-    new_response_headers.set('access-control-allow-credentials', 'true');
-    new_response_headers.set('cache-control', 'public, max-age=14400');
-    new_response_headers.delete('content-security-policy');
-    new_response_headers.delete('content-security-policy-report-only');
-    new_response_headers.delete('clear-site-data');
-
-    // 处理响应内容，替换域名引用
-    const modified_body = await modifyResponse(response_clone, host_prefix, url.hostname);
-
-    return new Response(modified_body, {
+    return new Response(response.body, {
       status: response.status,
-      headers: new_response_headers
+      statusText: response.statusText,
+      headers: response_headers
     });
   } catch (err) {
     return new Response(`Proxy Error: ${err.message}`, { status: 502 });
   }
 }
 
-  // 检查其他映射前缀
+function getProxyPrefix(hostname) {
   for (const prefix of Object.values(domain_mappings)) {
-    if (host.startsWith(prefix)) {
+    if (hostname.startsWith(prefix)) {
       return prefix;
     }
   }
-
   return null;
-}
-
-async function modifyResponse(response, host_prefix, current_hostname) {
-  // 只处理文本内容
-  const content_type = response.headers.get('content-type') || '';
-  if (!content_type.includes('text/') && !content_type.includes('application/json') && 
-      !content_type.includes('application/javascript') && !content_type.includes('application/xml')) {
-    return response.body;
-  }
-
-  let text = await response.text();
-
-  // 获取当前域名的后缀部分（用于构建完整的代理域名）
-  const domain_suffix = current_hostname.substring(host_prefix.length);
-
-  // 替换所有域名引用
-  for (const [original_domain, proxy_prefix] of Object.entries(domain_mappings)) {
-    const escaped_domain = original_domain.replace(/\./g, '\\.');
-    const full_proxy_domain = `${proxy_prefix}${domain_suffix}`;
-
-    // 替换完整URLs
-    text = text.replace(
-      new RegExp(`https?://${escaped_domain}(?=/|"|'|\\s|$)`, 'g'),
-      `https://${full_proxy_domain}`
-    );
-
-    // 替换协议相对URLs
-    text = text.replace(
-      new RegExp(`//${escaped_domain}(?=/|"|'|\\s|$)`, 'g'),
-      `//${full_proxy_domain}`
-    );
-  }
-
-  // 处理相对路径
-  if (host_prefix === 'gh.') {
-    text = text.replace(
-      /(?<=["'])\/(?!\/|[a-zA-Z]+:)/g,
-      `https://${current_hostname}/`
-    );
-  }
-
-  return text;
 }
 ```
 

@@ -237,7 +237,7 @@ cloudflared access rdp --hostname rdp.onani.cn --url rdp://localhost:3380
 ### FRP基本认证参数
 
 ```yaml
-auth.token = "0721"
+auth.token = "07210721"
 ```
 
 ### FRP systemd服务配置（开机自启）
