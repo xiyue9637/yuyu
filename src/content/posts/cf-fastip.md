@@ -168,7 +168,7 @@ function getProxyPrefix(hostname) {
 
 1. 你可以直接将你绑定到Page的子域名直接更改NS服务器到阿里云\华为云\腾讯云云解析做线路分流解析
 
-2. 将您的Page项目升级为Worker项目，使用下面的Worker优选方案（更简单）
+2. 将您的Page项目升级为Worker项目，使用下面的Worker优选方案（更简单）。详细方法见： 【CF Page一键迁移到Worker？好处都有啥？-哔哩哔哩】 https://b23.tv/t5Bfaq1
 
 # 针对于Cloudflare Workers
 
