@@ -1,11 +1,24 @@
 # 关于
+
 **Fuwari牛逼，我这辈子都不会改博客框架了**
 
-IP站点（实验性）： 
- 
-- https://sbgfw.afo.im （302）
+本站的所有访问节点： 
 
-- https://46.232.60.28:44444 （直链）
+> 如果您访问的域名并不在下述列表中，您的连接可能会被监听或者网站页面被篡改，请切换到我们的官方节点继续安全访问
+
+- 主节点1： https://www.afo.im （Cloudflare）
+
+- 主节点2： https://afo.im （Cloudflare 301）
+
+- https://eo3-blog.afo.im （EdgeOne CDN）
+
+- [https://eo2-blog.afo.im](https://eo2-blog.afo.im) （EdgeOne Page）
+
+- https://vercel-blog.afo.im （Vercel）
+
+- https://sbgfw.afo.im （Cloudflare 301 到IP站点）
+
+- https://46.232.60.28:44444 （IP站点）
 
 ::github{repo="saicaca/fuwari"}
 
