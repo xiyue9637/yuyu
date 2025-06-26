@@ -8,7 +8,7 @@
 
 - 主节点1： https://www.afo.im （EdgeOne CDN Free）
 
-- 主节点2： https://afo.im （Cloudflare 302 到主节点1）
+- 主节点2： https://afo.im （EdgeOne CDN Free）
 
 - https://cf-blog.afo.im （Cloudflare）
 

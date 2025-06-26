@@ -1,6 +1,6 @@
 ---
 title: "加群向导"
-image: "https://hpic.072103.xyz"
+image: "https://hpic.afo.im"
 published: 2025-05-24
 pinned: true
 description: 关于如何联系二叉树树~
