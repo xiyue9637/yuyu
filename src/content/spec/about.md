@@ -6,9 +6,11 @@
 
 > 如果您访问的域名并不在下述列表中，您的连接可能会被监听或者网站页面被篡改，请切换到我们的官方节点继续安全访问
 
-- 主节点1： https://www.afo.im （Cloudflare）
+- 主节点1： https://www.afo.im （EdgeOne CDN Free）
 
 - 主节点2： https://afo.im （Cloudflare 302 到主节点1）
+
+- https://cf-blog.afo.im （Cloudflare）
 
 - https://eo3-blog.afo.im （EdgeOne CDN）
 
