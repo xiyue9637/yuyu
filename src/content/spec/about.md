@@ -22,6 +22,8 @@
 
 - https://vercel-blog.afo.im （Vercel）
 
+- https://render-blog.afo.im （Render）
+
 - https://sbgfw.afo.im （Cloudflare 302 到IP站点）
 
 - https://46.232.60.28:44444 （IP站点）

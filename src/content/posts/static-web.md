@@ -4,142 +4,81 @@ description: Serverless服务有很多，静态托管就是重中之重，来看
 draft: false
 image: https://free-eo-r2.afo.im/fuwari-blog/img/2024-11-28-08-37-49-image.png
 lang: ''
-published: 2024-11-28
+published: 2025-06-29
 tags:
 - Vercel
-- Cloudflare Pages
+- Cloudflare
 - Netlify
-- Surge
+- EdgeOne
+- Github
 - Render
-- Github Page
-title: N款静态网站服务商的优缺点比较
+title: N款CDN服务商的优缺点比较
 ---
-在构建个人博客、项目展示或者静态网站时，选择合适的托管服务商非常重要。不同的服务商提供不同的功能和特性
-#### 1. [Vercel](https://vercel.app/)
 
-**优点**：
-- 支持PHP，你可以部署Typecho
-- 支持 Git 集成
-- 访问速度非常快。最低50ms
-- 注册简单
-- 可绑定自定义域名，支持 HTTPS
+# [Vercel](https://vercel.com)
 
-**缺点**：
+零成本用上。注册无门槛，延迟良好。用量限制较严格。仅支持IPv4回源。默认的 `*.vercel.app` 在国内会被SNI阻断，需要绑定自己的域名
 
-- 免费版有一定限制，如带宽和构建时间。很容易被刷爆
-- 目前不支持IPv6回源
+![](https://free-eo-r2.afo.im/myblog/img/14654577-5c25-4136-bb06-9e10d1945ae2.webp)
 
-#### 2. [Render](https://render.com/)
+![](https://free-eo-r2.afo.im/myblog/img/eb1ef62c-f50c-4f89-a287-c74e18353b9c.webp)
 
-路边一条
+# [EdgeOne CDN](https://edgeone.ai)
 
-#### 3. [Cloudflare Pages](https://dash.cloudflare.com/)
+目前处于内测，需要兑换码。获取方式前往 [腾讯云EdgeOne免费计划兑换码 - 立即体验](https://edgeone.ai/zh/redemption) 。无流量和请求数限制。
 
-**优点**：
+![](https://free-eo-r2.afo.im/myblog/img/ed25c33f-5719-44b5-844e-62ac73eadfef.webp)
 
-- 支持与 Git 集成
-- 注册简单
-- 支持自定义域名绑定
-- 刷不爆。静态资源全免费访问，不限次数不限带宽
-- 支持全栈，对接Worker D1 KV R2
+支持**高级回源设置**
 
-**缺点**：
+![](https://free-eo-r2.afo.im/myblog/img/a1517d8e-1664-4819-ba08-d78ae13299a4.webp)
 
-- 太jb慢了。200ms朝上
+## 全球可用区（不含中国大陆）
 
+> 本人博客目前使用的CDN
 
-#### 4. [TencentCloud EdgeOne](https://edgeone.ai/)
+默认提供的CNAME延迟一般。下图是使用了本人的HK优选： eo.072103.xyz（注： EdgeOne Page不可用）
 
- 别用，会吞Github提交，导致你的网站卡在旧版，我已经跑路了
+![](https://free-eo-r2.afo.im/myblog/img/b2937ed2-0f8d-4179-a9b5-b465902ca9ab.webp)
 
-#### 5. [Github Pages](https://github.com/)
+## EdgeOne CDN 中国大陆可用区
 
-**优点**：
-- 与 Git 集成，直接通过 GitHub 仓库进行部署
-- 可以通过 GitHub Actions 实现 CI/CD 自动化
-- 支持自定义域名绑定
+需要**实名认证**，需要**域名备案**
 
-**缺点**：
+默认CNAME可用
 
-- 国内访问可能会遇到 GitHub 阻断问题。如果你能连上，延迟很低
+![](https://free-eo-r2.afo.im/myblog/img/c44674d3-d37e-4f00-a7ee-cdac7798b293.webp)
 
-#### 6. [Fleek](https://fleek.xyz/)
+# [Cloudflare](https://www.cloudflare.com/)
 
-**优点**：
+无流量和请求数限制。**无法被打死**
 
-- 基于 IPFS，支持去中心化存储。其他功能中规中矩
+[戳我查看优选域名](/posts/record/#cloudflare-%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D)
 
-**缺点**：
+下图使用本人的分流优选： fenliu.072103.xyz
 
-- 访问速度相对适中
+![](https://free-eo-r2.afo.im/myblog/img/f0785c5d-b31a-40d1-9da9-ac50a94f6b0a.webp)
 
-#### 7. [Surge](https://surge.sh/)
+# [Netlify](https://www.netlify.com)
 
-**优点**：
+注册门槛高，需要使用谷歌邮箱注册。支持IPv6回源。用量限制较严格
 
-- 我觉得没有
-- 示例Github Action进行CI/CD自动化（将gh-pages发布到Surge）：
+![](https://free-eo-r2.afo.im/myblog/img/282ad19c-f971-4f92-9096-6e75308205c5.webp)
 
-- ```yaml
-  name: Deploy to Surge
-  
-  on:
-    repository_dispatch:
-      types: [deploy_surge]  # 监听来自 build.yml 的自定义事件
-  
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-          with:
-            ref: gh-pages  # 检出 gh-pages 分支
-  
-        - name: Deploy to Surge
-          run: |
-            npm install -g surge
-            surge ./ https://acofork-blog.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-          env:
-            SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-  ```
+因为节点禁Ping，所以这里用Tcping结果展示
 
-**缺点**：
-- 要用命令行操作（你可以对接Github Action）
-- 无法直接与 Git 集成
-- 无法绑定自定义域名
+![](https://free-eo-r2.afo.im/myblog/img/9e24535c-ba3f-4245-92db-f90b87b3efe9.webp)
 
-#### 8. [Netlify](https://netlify.com/)
+# [Render](https://render.com)
 
-**优点**：
-- 我正在用的，比CF快，比Vercel慢
-- 支持IPv6回源
+注册简单，具有严格的用量限制
 
-**缺点**：
-- 注册门槛高到埃菲尔铁塔，需要使用纯净IP和谷歌邮箱
-- 想钱想疯了，免费计划WAF一条规则不给配
+![](https://free-eo-r2.afo.im/myblog/img/0bccb1b9-3fe1-49f0-a255-0805fc0ee35c.webp)
 
-### 总结
+![](https://free-eo-r2.afo.im/myblog/img/2b6104d5-9cee-4e2b-adb5-9aefe02240d2.webp)
 
-- **Vercel**：快，方便好用，大部分项目都可以部署
-- **Netlify**：要不是你支持IPv6回源我就去用Vercel了
-- **Render**：我不知道
-- **Cloudflare Pages**：刷不爆，方便对接Worker
-- **Github Pages**：如果你能稳定连上，那延迟不错
-- **Fleek**：披着IPFS的皮的Amazon CDN
-- **Surge**：你用这个？
-- **Edge One**：路边
+# [Github Page](https://pages.github.com/)
 
+需要使用Github Action发布。**中国大陆大部分地区会间歇性阻断**，不推荐使用
 
-
-# （旧）智能网关测速HTML代码：
-
-> 使用了这么多的节点，肯定想要选择最快的或者在用户那边装逼，所以这边给一个智能网关测速HTML代码，它去请求了`https://acofork.us.kg/data.json`并且挨个给里面的`博客`节点测速，然后自动选择最快的那个。如果你只是小项目使用，可以使用硬编码，这里就给出Git仓库
-
-https://github.com/afoim/Smart_Gateway
-
-# （旧）简易导航页HTML代码：
-
-> 刚才说了“它去请求了`https://acofork.us.kg/data.json`并且挨个给里面的`博客`节点测速，然后自动选择最快的那个。”这就是`data.json`所在的地方
-
-https://github.com/afoim/Web_test
+![](https://free-eo-r2.afo.im/myblog/img/efccadbf-bc70-4444-bb48-8399cf881617.webp)
