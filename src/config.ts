@@ -20,7 +20,10 @@ export const siteConfig: SiteConfig = {
 		"技术博客",
 		"CDN技术",
 		"无服务器",
+		"前端逆向",
 		"Serverless",
+		"AcoFork",
+		"AcoFork Blog",
 	],
 	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
 	themeColor: {
