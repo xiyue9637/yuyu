@@ -4,6 +4,7 @@ export type SiteConfig = {
 	title: string;
 	subtitle: string;
 	description?: string;
+	keywords?: string[];
 
 	lang: string;
 

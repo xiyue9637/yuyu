@@ -88,6 +88,9 @@ const bannerOffset =
 		<meta charset="UTF-8" />
 		<meta name="description" content={description}>
 		<meta name="author" content={profileConfig.name}>
+		{siteConfig.keywords && (
+			<meta name="keywords" content={siteConfig.keywords.join(", ")}>
+		)}
 
 		<meta property="og:site_name" content={siteConfig.title}>
 		<meta property="og:url" content={Astro.url}>
