@@ -39,7 +39,7 @@ export const siteConfig: SiteConfig = {
 			enable: true, // Display the credit text of the banner image
 			text: "Pixiv @chokei", // Credit text to be displayed
 
-			url: "https://www.pixiv.net/users/20105703", // (Optional) URL link to the original artwork or artist's page
+			url: "https://www.pixiv.net/artworks/122782209", // (Optional) URL link to the original artwork or artist's page
 		},
 	},
 	toc: {
