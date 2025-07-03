@@ -42,7 +42,7 @@ lang: ''
 }
 ```
 
-再接着我们请求
+再接着我们请求，携带请求头 `x-umami-share-token` 值为上一步获得的Token
 
 `https://us.umami.is/api/websites/a66a5fd4-98b0-4108-8606-cb7094f380ac/stats?startAt=0&endAt=1750805999999&unit=hour&timezone=Asia/Hong_Kong&url=/posts/cf-fastip/&compare=false`
 
@@ -52,7 +52,7 @@ lang: ''
 
 - endAt：统计结束时间。Unix时间戳，我们可以使用 `Date.now()` ，即当前时间，和startAt参数联动即可实现统计总浏览量
 
-- url：要查询的路径，填写为你的文章页去除了Host的路径，如 `/posts/hello` 。注意！Umami会将 `/posts/hello` 和 `/posts/hello` 视为两个不同的路径，请注意你的博客框架是否使用 `/`
+- url：要查询的路径，填写为你的文章页去除了Host的路径，如 `/posts/hello` 。注意！Umami会将 `/posts/hello` 和 `/posts/hello/` 视为两个不同的路径，请注意你的博客框架是否使用 `/`
 
 你会得到
 

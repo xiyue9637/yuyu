@@ -1,6 +1,6 @@
 ---
 title: "加群向导"
-image: "https://sb-hpic.afo.im"
+image: "https://sb-r2.afo.im/assets/pin.webp"
 published: 2025-05-24
 pinned: true
 category: '置顶'
