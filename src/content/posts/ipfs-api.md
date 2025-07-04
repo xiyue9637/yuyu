@@ -11,6 +11,8 @@ lang: ''
 
 # 正式开始
 
+> 该API为[xLog](https://xlog.app)的图床API
+
 POST https://ipfs-relay.crossbell.io/upload
 
 头无鉴权
