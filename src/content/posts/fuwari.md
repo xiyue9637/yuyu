@@ -82,7 +82,7 @@ title: Fuwari静态博客搭建教程
    
    - `NavBarConfig` 为导航栏设置的超链接。`ProfileConfig` 为你的用户的超链接，分别如图![](https://sb-r2.afo.im/fuwari-blog/img/2024-10-15-17-49-30-image.webp)
    
-   - icon：你需要前往[icones.js](https://https://icones.js.org/)去搜索你想要的图标，比如QQ，则填写 `fa6-brands:qq` ，如图。Fuwari默认支持这几种类型：`fa6-brands`, `fa6-regular`, `fa6-solid`, `material-symbols`。可以在 `astro.config.mjs` 中搜索关键字进行配置
+   - icon：你需要前往[icones.js](https://icones.js.org/)去搜索你想要的图标，比如QQ，则填写 `fa6-brands:qq` ，如图。Fuwari默认支持这几种类型：`fa6-brands`, `fa6-regular`, `fa6-solid`, `material-symbols`。可以在 `astro.config.mjs` 中搜索关键字进行配置
    
    - ![](https://sb-r2.afo.im/myblog/img/1ef05530-10fd-4301-af4e-21ddadf18605.webp)
    
