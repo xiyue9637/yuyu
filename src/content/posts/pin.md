@@ -1,5 +1,5 @@
 ---
-title: "加群向导&常见问题"
+title: "加群向导&其他网站&常见问题"
 image: "https://sb-r2.afo.im/assets/pin.webp"
 published: 2025-05-24
 pinned: true
@@ -18,7 +18,15 @@ description: 关于如何联系二叉树树~
 
 ---
 
-# EdgeOne CDN相关
+# 其他网站
+
+[六子棋 - Python](https://sixqi.afo.im)
+
+---
+
+# 常见问题
+
+## EdgeOne CDN相关
 
 > 内测时间截至到哪？
 
@@ -48,7 +56,7 @@ description: 关于如何联系二叉树树~
 
 单线程512KB/s，多线程我能跑到最高72MB/s
 
-# 内网穿透相关
+## 内网穿透相关
 
 > 我怎么看我是不是NAT1
 
@@ -58,7 +66,7 @@ description: 关于如何联系二叉树树~
 
 光猫桥接，路由拨号，开启UPnP或者开启DMZ指向你想要成为NAT1的设备的IP
 
-# 域名相关
+## 域名相关
 
 > afo.im这个域名哪买的？
 
@@ -68,7 +76,7 @@ Spaceship
 
 6-9位纯数字xyz，Spaceship买
 
-# Vercel相关
+## Vercel相关
 
 >  私有仓库无法同步Git进行CI/CD。手动创建部署提示 A commit author is required ？
 
