@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <!-- 支付宝 -->
             <div class="donate-card">
                 <div class="flex items-center gap-3 mb-4">
@@ -51,6 +51,33 @@ import { Icon } from "astro-icon/components";
                 </div>
                 <div class="qr-code-placeholder">
                     <img src="/pay/wechat.svg" alt="微信支付二维码" class="w-84 h-84 mx-auto rounded-lg" />
+                </div>
+            </div>
+
+            <!-- 加密货币 -->
+            <div class="donate-card">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-lg bg-orange-500 flex items-center justify-center">
+                        <Icon name="simple-icons:bitcoin" class="text-[1.5rem] text-white"/>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-black dark:text-white">加密货币</h3>
+                        <p class="text-sm text-black/60 dark:text-white/60">USDT/USDC/BTC</p>
+                    </div>
+                </div>
+                <div class="crypto-info">
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold text-black dark:text-white mb-2">钱包地址<br> (AVAXC/ERC20/BEP20)</h4>
+                        <div class="wallet-address">
+                            <code class="text-xs bg-black/5 dark:bg-white/10 text-black dark:text-white p-2 rounded block break-all">0xe2bacffb78145af2e8d8fe3e28073badb7e9e56c</code>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-semibold text-black dark:text-white mb-2">Bybit UID</h4>
+                        <div class="bybit-uid">
+                            <code class="text-xs bg-black/5 dark:bg-white/10 text-black dark:text-white p-2 rounded block">465138256</code>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,6 +153,24 @@ import { Icon } from "astro-icon/components";
                             <!-- 如果有本地头像文件，使用: <img src="/avatars/user1.jpg" alt="用户头像" class="w-full h-full object-cover" /> -->
                             <!-- 如果没有头像文件，显示默认图标 -->
                             <!-- <Icon name="material-symbols:person" class="text-gray-500 dark:text-gray-400 text-[1.2rem]"/> -->
+                             <img src="https://coldin.top/src/avatar.webp" alt="用户头像" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-black dark:text-white text-sm">酷丁同学</h4>
+                            <p class="text-xs text-black/60 dark:text-white/60">2025-07-15</p>
+                        </div>
+                        <div class="text-xs text-[var(--primary)] font-medium">
+                            5 USDC
+                        </div>
+                    </div>
+                </div>
+                <div class="sponsor-card">
+                    <div class="flex items-center gap-3 p-4 rounded-lg bg-[var(--card-bg)] border border-black/10 dark:border-white/10">
+                        <!-- 本地头像示例（需要将头像放在 public/avatars/ 目录下） -->
+                        <div class="w-10 h-10 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center overflow-hidden">
+                            <!-- 如果有本地头像文件，使用: <img src="/avatars/user1.jpg" alt="用户头像" class="w-full h-full object-cover" /> -->
+                            <!-- 如果没有头像文件，显示默认图标 -->
+                            <!-- <Icon name="material-symbols:person" class="text-gray-500 dark:text-gray-400 text-[1.2rem]"/> -->
                              <Icon name="material-symbols:person" class="text-gray-500 dark:text-gray-400 text-[1.2rem]"/>
                         </div>
                         <div class="flex-1">
@@ -193,4 +238,31 @@ import { Icon } from "astro-icon/components";
 .sponsor-card {
     @apply transition-all duration-200 hover:shadow-md hover:scale-105;
 }
+.crypto-info {
+    @apply space-y-3;
+}
+
+.wallet-address, .bybit-uid {
+    @apply text-center;
+}
+
+.copy-btn {
+    @apply transition-colors duration-200;
+}
+
+.copy-btn:hover {
+    color: var(--primary);
+    opacity: 0.8;
+}
 </style>
+
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        // 可以添加复制成功的提示
+        alert('已复制到剪贴板');
+    }, function(err) {
+        console.error('复制失败: ', err);
+    });
+}
+</script>
