@@ -9,6 +9,10 @@ draft: false
 lang: ''
 ---
 
+# 视频教程
+
+https://b23.tv/E8Z34KM
+
 # 正式开始
 
 资源： https://sb-r2.afo.im/chevereto_4.3.6-Pro_unlock.zip （感谢宝塔开心版站长！）
