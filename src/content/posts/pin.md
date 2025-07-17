@@ -22,17 +22,9 @@ Matrix： matrix.to/#/#acofork-tech:matrix.afo.im [详细教程](https://www.afo
 
 # 其他网站
 
-[Chevereto](https://nginx.php.afo.im)
 
-[ICMP/TCP/HTTP测试](https://php.afo.im/webtest)
 
-[吃掉小柚咲](https://php.afo.im/eatkano/)
-
-[六子棋 - Python](https://sixqi.php.afo.im/)
-
-[二次元随机图 - 竖屏](https://php.afo.im/ri/?img=v)
-
-[二次元随机图 - 横屏](https://php.afo.im/ri/?img=h)
+[六子棋 - Python](https://sixqi.afo.im/)
 
 ---
 
