@@ -12,6 +12,8 @@ description: 关于如何联系二叉树树~
 
 QQ群：1051639698
 
+TG： [Telegram: Join Group Chat](https://s.afo.im/tg)
+
 > 请认准QQ号2726730791、3932644274、3230434312这都是我
 
 Matrix： matrix.to/#/#acofork-tech:matrix.afo.im [详细教程](https://www.afo.im/posts/element/)
