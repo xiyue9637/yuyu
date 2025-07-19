@@ -61,8 +61,8 @@ MYSQL 需要 8.0 以上
 
 # 我搭建好的
 
-https://nginx.php.afo.im/upload
+https://chevereto.php.afo.im/upload
 
 登录后查看所有图片：
 
-https://nginx.php.afo.im/explore/images
+https://chevereto.php.afo.im/explore/images
