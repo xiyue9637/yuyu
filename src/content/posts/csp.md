@@ -11,9 +11,7 @@ lang: ''
 
 # 举个例子吧！
 
-
-
-这是一个无CSP标头的网站： [点我](https://none-csp-demo.pages.dev/csp?name=%3Cimg%20src=x%20onerror=%22alert(%27XSS%E6%94%BB%E5%87%BB%E6%88%90%E5%8A%9F%27)%22%3E)
+这是一个无CSP标头的网站： [点我](https://none-csp-demo.pages.dev/nocsp?name=%3Cimg%20src=x%20onerror=%22alert(%27XSS%E6%94%BB%E5%87%BB%E6%88%90%E5%8A%9F%27)%22%3E)
 
 不出意外，你的浏览器会弹出一个提示
 
