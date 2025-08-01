@@ -9,6 +9,10 @@ draft: false
 lang: ''
 ---
 
+# 此文过旧，请参见 [这里](/tit/)
+
+---
+
 # 正式开始
 
 > 如果你是App，请确保已经使用 matrix.afo.im ，并且点击使用Github登录，无需注册
