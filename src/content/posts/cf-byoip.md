@@ -2,7 +2,7 @@
 title: 还在用Cloudflare传统优选？来看看Cloudflare Byoip！
 published: 2025-07-22
 description: 'Cloudflare Byoip是一些用户将自有IP托管给Cloudflare，使其接入Cloudflare全球网络，大部分IP质量比官方IP好得多，但，代价是什么呢？'
-image: 'https://eo-r2.2x.nz/myblog/img/1987022f-8524-4774-b6ca-2caf38d9820a.webp'
+image: '../assets/images/1987022f-8524-4774-b6ca-2caf38d9820a.webp'
 tags: [Cloudflare Byoip]
 category: '记录'
 draft: false 

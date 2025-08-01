@@ -2,7 +2,7 @@
 title: 如何提高网站的SEO？
 published: 2025-07-30
 description: '很多人做个网站后就不管了，殊不知想让搜索引擎快速收录并且提高排名要做的事情还不少呢！'
-image: 'https://eo-r2.2x.nz/myblog/img/f334c97b-bb75-4920-8bd1-e62c9e5c675c.webp'
+image: '../assets/images/f334c97b-bb75-4920-8bd1-e62c9e5c675c.webp'
 tags: [SEO]
 category: '记录'
 draft: false 
