@@ -17,7 +17,7 @@ lang: ''
 
 > 如果你是App，请确保已经使用 m.2x.nz ，并且点击使用Github登录，无需注册
 
-使用浏览器访问： [You&apos;re invited to talk on Matrix](https://matrix.to/#/#acofork-tech:matrix.afo.im)
+使用浏览器访问： https://matrix.to/#/#acofork:m.2x.nz
 
 点击 Continue
 
@@ -39,7 +39,7 @@ lang: ''
 
 ![](../assets/images/dd10cabf-3455-4aa0-95c6-bb23f9764783.webp)
 
-编辑 `家服务器`
+编辑 家服务器
 
 ![](../assets/images/55aada68-f144-461c-8857-d4114ee2e8de.webp)
 
