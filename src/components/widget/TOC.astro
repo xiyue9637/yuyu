@@ -90,8 +90,12 @@ class TableOfContents extends HTMLElement {
                 this.anchorNavTarget = null;
         });
 
-        if (!this.active.includes(true))
+        if (!this.active.includes(true)) {
+            // 当没有任何标题在视窗中时，隐藏 active-indicator
+            this.activeIndicator?.setAttribute("style", "display: none;");
             this.fallback();
+            return;
+        }
         this.update();
     };
 
@@ -116,7 +120,7 @@ class TableOfContents extends HTMLElement {
         let scrollOffset = this.tocEl?.scrollTop || 0;
         let top = this.tocEntries[min].getBoundingClientRect().top - parentOffset + scrollOffset;
         let bottom = this.tocEntries[max].getBoundingClientRect().bottom - parentOffset + scrollOffset;
-        this.activeIndicator?.setAttribute("style", `top: ${top}px; height: ${bottom - top}px`);
+        this.activeIndicator?.setAttribute("style", `display: block; top: ${top}px; height: ${bottom - top}px`);
     };
 
     scrollToActiveHeading = () => {

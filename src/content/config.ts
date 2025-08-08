@@ -29,7 +29,17 @@ const specCollection = defineCollection({
 		draft: z.boolean().optional().default(false),
 	}),
 });
+
+const assetsCollection = defineCollection({
+	type: 'data',
+	schema: z.object({
+		title: z.string().optional(),
+		description: z.string().optional(),
+	}),
+});
+
 export const collections = {
 	posts: postsCollection,
 	spec: specCollection,
+	assets: assetsCollection,
 };
