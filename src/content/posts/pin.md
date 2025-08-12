@@ -10,7 +10,7 @@ description: 关于如何联系二叉树树~
 
 # 加入群聊
 
-TG： https://t.me/+blyHrp_GihhhMWVl
+TG： https://t.me/sb2xss
 
 Discord： https://discord.gg/qaCDqsGA
 
