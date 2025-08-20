@@ -10,6 +10,8 @@ tags:
 title: "Ciallo～(∠・ω< )⌒★"
 ---
 
+> 本文由 https://github.com/afoim/fuwari/pull/40 提供，非站长原创
+
 # 刨手手表情包下载站  
 一个简单、美观、现代化的表情包预览和下载网站  [体验界面](https://paoshoushou.112601.xyz/)
 ![示例](https://imgbed.112601.xyz/file/1755431008556.png)  
